@@ -1,42 +1,124 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 모든 요소의 박스 크기 계산을 정확히 설정 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 앱 전체 레이아웃 */
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+/* 컨텐츠 박스 중앙 정렬 및 스타일 */
+.content-box {
+  width: 100%;
+  max-width: 600px; /* 전체 박스의 최대 너비 제한 */
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* 제목 스타일 */
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 입력 폼 스타일 */
+.input-form {
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* 입력 폼 */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) auto; /* 4개의 입력 필드와 1개의 버튼 */
+  gap: 10px;
+  align-items: end;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
 }
 
-.card {
-  padding: 2em;
+.input-group label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.read-the-docs {
-  color: #888;
+.input-group input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+/* 버튼 */
+.add-button {
+  padding: 8px 0;
+  background-color: #ffcc00;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  height: 35px;
+  width: 50px;
+}
+
+.add-button:hover {
+  background-color: #ffb300;
+}
+
+/* 안내 텍스트 */
+p {
+  color: #555;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* 메달 리스트 */
+.medal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.medal-table th,
+.medal-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.medal-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.medal-table td {
+  background-color: #fff;
 }
