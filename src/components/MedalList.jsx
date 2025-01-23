@@ -9,6 +9,7 @@ const MedalList = ({ countries, onDelete }) => {
           <th>금메달</th>
           <th>은메달</th>
           <th>동메달</th>
+          <th>메달 합계</th>
           <th>삭제</th>
         </tr>
       </thead>
@@ -19,6 +20,7 @@ const MedalList = ({ countries, onDelete }) => {
             <td>{country.gold}</td>
             <td>{country.silver}</td>
             <td>{country.bronze}</td>
+            <td>{country.gold + country.silver + country.bronze}</td>
             <td>
               <button
                 onClick={() => onDelete(country.name)}
