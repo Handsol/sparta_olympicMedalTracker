@@ -1,103 +1,59 @@
 import React, { useState } from "react";
 import "./App.css";
+import MedalForm from "./components/MedalForm";
 import MedalList from "./components/MedalList";
 
 function App() {
-  // 기본 상태 관리
-  // form을 사용해 입력 필드 값 관리
-  // handleChange와 setForm을 사용해 입력 필드 값 초기화
-  const [countries, setCountries] = useState([]);
-  const [form, setForm] = useState({
-    name: "",
-    gold: 0,
-    silver: 0,
-    bronze: 0,
-  });
+  const [countries, setCountries] = useState([]); // 국가 리스트
 
-  // 입력 값 변경 처리
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({
-      ...form,
-      [name]: name === "name" ? value : Number(value),
-    });
-  };
+  // 국가 데이터 추가
+  const addCountry = (newCountry) => {
+    // 기존 국가 이름이 있는지 확인
+    const existingCountry = countries.find(
+      (country) => country.name === newCountry.name
+    );
 
-  // 폼 제출 처리
-  const handleSubmit = (e) => {
-    e.preventDefault(); // 기본 동작 방지
-
-    // 유효성 검사
-    if (!form.name.trim()) {
-      alert("국가 이름을 입력하세요.");
+    // 이미 존재하는 국가인 경우
+    if (existingCountry) {
+      alert("이미 추가된 국가입니다. 메달 수정을 사용하세요.");
       return;
     }
 
-    setCountries([...countries, form]);
-    setForm({ name: "", gold: 0, silver: 0, bronze: 0 });
+    // 새로운 국가 추가
+    setCountries([...countries, newCountry]);
   };
 
-  // onSubmit 을 사용해 폼 제출 및 데이터 처리.
-  // required를 사용해 입력 필드 값이 비어있는지 확인.
+  // 국가 데이터 수정
+  const updateCountry = (updatedCountry) => {
+    setCountries(
+      countries.map((country) =>
+        country.name === updatedCountry.name ? updatedCountry : country
+      )
+    );
+  };
+
+  // 국가 데이터 삭제
+  const deleteCountry = (name) => {
+    setCountries(countries.filter((country) => country.name !== name));
+  };
+
+  // 메달들 기준으로 내림차순 정렬
+  const sortedCountries = [...countries].sort((a, b) => {
+    if (b.gold !== a.gold) {
+      return b.gold - a.gold; // 금메달 기준 내림차순
+    } else if (b.silver !== a.silver) {
+      return b.silver - a.silver; // 은메달 기준 내림차순
+    } else {
+      return b.bronze - a.bronze; // 동메달 기준 내림차순
+    }
+  });
+
   return (
     <div className="app-container">
       <div className="content-box">
         <h1>2024 파리 올림픽</h1>
-        <form className="input-form" onSubmit={handleSubmit}>
-          <div className="grid-container">
-            <div className="input-group">
-              <label htmlFor="name">나라 이름</label>
-              <input
-                id="name"
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="input-group">
-              <label htmlFor="gold">금메달</label>
-              <input
-                id="gold"
-                type="number"
-                name="gold"
-                value={form.gold}
-                onChange={handleChange}
-                min="0"
-                required
-              />
-            </div>
-            <div className="input-group">
-              <label htmlFor="silver">은메달</label>
-              <input
-                id="silver"
-                type="number"
-                name="silver"
-                value={form.silver}
-                onChange={handleChange}
-                min="0"
-                required
-              />
-            </div>
-            <div className="input-group">
-              <label htmlFor="bronze">동메달</label>
-              <input
-                id="bronze"
-                type="number"
-                name="bronze"
-                value={form.bronze}
-                onChange={handleChange}
-                min="0"
-                required
-              />
-            </div>
-            <button type="submit" className="add-button">
-              추가
-            </button>
-          </div>
-        </form>
-        <MedalList countries={countries} />
+        <MedalForm onAdd={addCountry} onUpdate={updateCountry} />
+        <MedalList countries={sortedCountries} onDelete={deleteCountry} />
       </div>
     </div>
   );

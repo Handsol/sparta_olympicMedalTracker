@@ -1,6 +1,6 @@
 import React from "react";
 
-const MedalList = ({ countries }) => {
+const MedalList = ({ countries, onDelete }) => {
   return (
     <table className="medal-table">
       <thead>
@@ -9,6 +9,7 @@ const MedalList = ({ countries }) => {
           <th>금메달</th>
           <th>은메달</th>
           <th>동메달</th>
+          <th>삭제</th>
         </tr>
       </thead>
       <tbody>
@@ -18,6 +19,14 @@ const MedalList = ({ countries }) => {
             <td>{country.gold}</td>
             <td>{country.silver}</td>
             <td>{country.bronze}</td>
+            <td>
+              <button
+                onClick={() => onDelete(country.name)}
+                className="delete-button"
+              >
+                삭제
+              </button>
+            </td>
           </tr>
         ))}
       </tbody>
