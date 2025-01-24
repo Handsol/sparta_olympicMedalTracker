@@ -1,8 +1,94 @@
-# React + Vite
+# 🏅 **2024 파리 올림픽 무대 경기**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 국가별 메달을 관리할 수 있는 React 웹 애플리케이션입니다. 
+> 국가별 메달 데이터를 추가하거나 수정할 수 있으며, 금메달 순 또는 총 메달 합계 기준으로 정렬 기능을 제공합니다.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📽️ **소개 영상**
+[![2024 파리 올림픽 프로젝트 시연 영상](https://img.youtube.com/vi/K0CBxCu7UhE/0.jpg)](https://youtu.be/K0CBxCu7UhE)
+
+---
+
+## ✨ **구현 기능**
+
+### 1. 🎓 **React 프로젝트 설정**
+- React를 사용하여 효율적이고 구성적인 애플리케이션 환경을 구축.
+
+### 2. 📋 **국가 메달 관리**
+- 국가별 메달 데이터를 등록 및 수정할 수 있는 기능.
+- **주요 기능:**
+  - **국가 추가:**
+    - 중복된 국가 이름이 입력되지 않도록 유효성 검사.
+    - 새로운 국가 데이터를 등록.
+  - **국가 수정:**
+    - 등록된 국가가 없을 경우 수정할 수 없으며, 알림 메시지를 표시.
+
+### 3. 🏆 **메달 정렬**
+- 국가별 메달 데이터를 기준으로 정렬 가능:
+  1. **금메달 기준 정렬:** 금메달 수에 따라 내림차순 정렬.
+  2. **총 메달 기준 정렬:** 금, 은, 동메달의 합계로 내림차순 정렬.
+
+---
+
+## 🗓️ **프로젝트 기간**
+- **2025년 1월 21일** ~ **2025년 1월 24일** (4일)
+
+## 🛠️ **트러블슈팅**
+
+### 1️⃣ [React 상태 관리 문제 해결](https://sol09-29.tistory.com/72)
+- **문제:** 컴포넌트 상태가 올바르게 업데이트되지 않는 문제 발생.
+- **해결:** 상태 불변성을 유지하도록 코드 수정.
+
+### 2️⃣ [Input 초기화 문제 해결](https://sol09-29.tistory.com/73)
+- **문제:** 수정 작업 후 입력 필드가 초기화되지 않는 문제 발생.
+- **해결:** 입력 필드 상태를 수정 작업 후 초기화하는 로직 추가.
+
+---
+
+## 📂 **프로젝트 구조**
+
+### **폴더 구조**
+```plaintext
+react-medal-tracker/
+├── src/
+│   ├── components/
+│   │   ├── MedalForm.jsx    # 국가 추가/수정 폼 컴포넌트
+│   │   ├── MedalList.jsx    # 국가 메달 리스트 컴포넌트
+│   ├── App.jsx              # 메인 컴포넌트
+│   ├── index.js             # 진입점
+│   ├── App.css              # 스타일링 파일
+└── public/
+    └── index.html           # HTML 파일
+```
+
+### **주요 파일 설명**
+- **`App.jsx`**: 애플리케이션의 메인 로직을 관리.
+- **`MedalForm.jsx`**: 국가 추가 및 수정 폼 컴포넌트.
+- **`MedalList.jsx`**: 국가 메달 데이터를 보여주는 리스트 컴포넌트.
+- **`App.css`**: 전체 스타일링 파일.
+
+---
+
+## 🛠️ **기술 스택**
+- **React**: SPA 구현을 위한 JavaScript 라이브러리.
+- **CSS3**: 레이아웃 및 스타일링.
+- **JavaScript (ES6)**: 동적 데이터 처리.
+
+---
+
+## 📖 **사용 방법**
+1. **국가 메달 추가**:
+   - 국가명과 메달 데이터를 입력 후 추가 버튼 클릭.
+   - 중복된 국가명이 있을 경우 알림 표시.
+2. **국가 메달 수정**:
+   - 기존 국가 데이터를 수정한 뒤 저장 버튼 클릭.
+   - 수정하려는 국가가 없을 경우 알림 표시.
+3. **정렬 기준 선택**:
+   - 금메달 기준 또는 총 메달 합계 기준으로 리스트를 정렬.
+
+---
+
+## 📬 **추가 정보**
+- 문의사항은 [GitHub](https://github.com/Handsol) 또는 [블로그](https://sol09-29.tistory.com/)를 통해 연락주세요! 😊
+
