@@ -3,8 +3,6 @@
 > 국가별 메달을 관리할 수 있는 React 웹 애플리케이션입니다. 
 > 국가별 메달 데이터를 추가하거나 수정할 수 있으며, 금메달 순 또는 총 메달 합계 기준으로 정렬 기능을 제공합니다.
 
-Link : https://handsol.github.io/sparta_olympicMedalTracker/
-
 ---
 
 ## 📽️ **소개 영상**
