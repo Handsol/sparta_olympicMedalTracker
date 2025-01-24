@@ -6,8 +6,7 @@
 ---
 
 ## 📽️ **소개 영상**
-[![2024 파리 올림픽 프로젝트 시연 영상](https://img.youtube.com/vi/K0CBxCu7UhE/0.jpg)](https://youtu.be/K0CBxCu7UhE)
-
+[![2024 파리 올림픽 프로젝트 시연 영상](https://img.youtube.com/vi/woZWIY7lrhE/0.jpg)](https://youtu.be/woZWIY7lrhE)
 ---
 
 ## ✨ **구현 기능**
