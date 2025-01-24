@@ -38,6 +38,8 @@ const MedalForm = ({ onAdd, onUpdate }) => {
       return;
     }
     onUpdate(form); // 부모 컴포넌트로 데이터 전달
+
+    setForm({ name: "", gold: 0, silver: 0, bronze: 0 });
   };
 
   return (
